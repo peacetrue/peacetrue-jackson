@@ -12,10 +12,8 @@ import java.util.*;
  */
 public abstract class JacksonUtils {
     /** the object map type */
-    public static final JavaType OBJECT_MAP_TYPE = TypeFactory.defaultInstance()
-            .constructParametrizedType(LinkedHashMap.class, Map.class, String.class, Object.class);
-    public static final JavaType LIST_OBJECT_MAP_TYPE = TypeFactory.defaultInstance()
-            .constructParametrizedType(List.class, ArrayList.class, OBJECT_MAP_TYPE);
+    public static final JavaType OBJECT_MAP_TYPE = TypeFactory.defaultInstance().constructParametricType(LinkedHashMap.class, Map.class, String.class, Object.class);
+    public static final JavaType LIST_OBJECT_MAP_TYPE = TypeFactory.defaultInstance().constructParametricType(ArrayList.class, OBJECT_MAP_TYPE);
 
 
     /** parse java type from object instance */
