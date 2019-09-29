@@ -1,1 +1,13 @@
 = 简介
+
+* 名称：**peacetrue-jackson**
+* 用途：提供 jackson 扩展支持
+* 地址： https://github.com/peacetrue/peacetrue-jackson[github^]
+
+== 具体内容
+=== xml root 序列化
+=== 类型擦除
+
+//TODO 文档和测试
+
+
