@@ -3,7 +3,10 @@ package com.github.peacetrue.jackson;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Objects;
 
 /**
  * a util class for Jackson
@@ -12,7 +15,7 @@ import java.util.*;
  */
 public abstract class JacksonUtils {
     /** the object map type */
-    public static final JavaType OBJECT_MAP_TYPE = TypeFactory.defaultInstance().constructParametricType(LinkedHashMap.class, Map.class, String.class, Object.class);
+    public static final JavaType OBJECT_MAP_TYPE = TypeFactory.defaultInstance().constructParametricType(LinkedHashMap.class, String.class, Object.class);
     public static final JavaType LIST_OBJECT_MAP_TYPE = TypeFactory.defaultInstance().constructParametricType(ArrayList.class, OBJECT_MAP_TYPE);
 
 
