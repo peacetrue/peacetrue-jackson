@@ -1,6 +1,7 @@
 package com.github.peacetrue.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -9,7 +10,9 @@ import org.junit.Test;
 public class EnumSerializerTest {
 
     public enum RandomEnum {
-        A("a", "name1"), B("b", "name2"), C("c", "name3");
+        A("a", "name1"),
+        B("b", "name2"),
+        C("c", "name3");
 
         private String id;
         private String name;
@@ -33,7 +36,7 @@ public class EnumSerializerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.addMixIn(Enum.class, EnumMixIn.CustomSerializer.class);
         String string = objectMapper.writeValueAsString(RandomEnum.values());
-        System.out.println(string);
+        Assert.assertEquals("[{\"ordinal\":0,\"name\":\"A\"},{\"ordinal\":1,\"name\":\"B\"},{\"ordinal\":2,\"name\":\"C\"}]", string);
     }
 
     @Test
@@ -41,7 +44,7 @@ public class EnumSerializerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.addMixIn(Enum.class, EnumMixIn.ObjectSerializer.class);
         String string = objectMapper.writeValueAsString(RandomEnum.values());
-        System.out.println(string);
+        Assert.assertEquals("[{\"id\":\"a\",\"name\":\"name1\"},{\"id\":\"b\",\"name\":\"name2\"},{\"id\":\"c\",\"name\":\"name3\"}]", string);
     }
 
 

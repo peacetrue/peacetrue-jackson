@@ -47,7 +47,6 @@ public class ObjectMapperWrapper {
     }
 
     /** similar to {@link ObjectMapper#readValue(String, JavaType)}, but avoid checked exception */
-    @SuppressWarnings("unchecked")
     public <T> T readValue(String source, JavaType javaType) {
         try {
             return objectMapper.readValue(source, javaType);
